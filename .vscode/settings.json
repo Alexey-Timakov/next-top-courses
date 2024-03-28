@@ -2,9 +2,21 @@
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "files.associations": {
     "*.css": "tailwindcss",
-    "*.scss": "tailwindcss",
+    "*.scss": "scss"
   },
   "editor.quickSuggestions": {
     "strings": "on"
-  }
+  },
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.config": null,
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ],
 }
