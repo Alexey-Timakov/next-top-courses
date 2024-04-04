@@ -9,6 +9,7 @@
   "rules": {
     "alpha-value-notation": "percentage",
     "at-rule-no-unknown": null,
+    "scss/dollar-variable-pattern": "[a-z][a-zA-Z]+",
     "scss/at-rule-no-unknown": [
       true,
       {

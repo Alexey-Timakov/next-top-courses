@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+$fontBaseSize: 62.5%;
+
 html,
 body {
+  font-size: $fontBaseSize;
   color: var(--black);
   background: #F5F6F8;
 }
