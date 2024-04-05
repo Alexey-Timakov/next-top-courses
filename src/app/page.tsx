@@ -1,4 +1,4 @@
-import { Button, Htag, Paragraph } from "@/components";
+import { Button, Htag, Paragraph, Tag } from "@/components";
 
 export default function Home() {
   return (
@@ -11,6 +11,11 @@ export default function Home() {
       <Paragraph size="big">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit odio est sit beatae voluptatum praesentium quos saepe quisquam cupiditate esse, necessitatibus libero, quo obcaecati dolore tempore minus rerum vero! Sunt!</Paragraph>
       <Paragraph>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit odio est sit beatae voluptatum praesentium quos saepe quisquam cupiditate esse, necessitatibus libero, quo obcaecati dolore tempore minus rerum vero! Sunt!</Paragraph>
       <Paragraph size="sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit odio est sit beatae voluptatum praesentium quos saepe quisquam cupiditate esse, necessitatibus libero, quo obcaecati dolore tempore minus rerum vero! Sunt!</Paragraph>
+      <Tag color="ghost">Ghost</Tag>
+      <Tag color="green">Green</Tag>
+      <Tag color="red" size="med">Red</Tag>
+      <Tag color="primary">Primary</Tag>
+      <Tag color="grey" size="med">Gray</Tag>
     </>
   );
 }
