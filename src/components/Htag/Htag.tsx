@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren, ReactElement } from "react";
 import styles from "./Htag.module.scss";
 import cn from "classnames";
 
@@ -8,12 +8,14 @@ interface IHtag extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HT
   tag: THtag;
 };
 
-export const Htag: FC<PropsWithChildren<IHtag>> = ({ tag, children, className, ...props }) => {
+export const Htag: FC<PropsWithChildren<IHtag>> = ({ tag, children, className, ...props }): ReactElement<HTMLHeadingElement> => {
   return (
-    <>
-      {tag === "h1" && <h1 className={cn(styles.h1, className)} {...props}>{children}</h1>}
-      {tag === "h2" && <h1 className={cn(styles.h2, className)} {...props}>{children}</h1>}
-      {tag === "h3" && <h1 className={cn(styles.h3, className)} {...props}>{children}</h1>}
-    </>
+    <h1 className={cn(styles.heading, className, {
+      [styles.h1]: tag === "h1",
+      [styles.h2]: tag === "h2",
+      [styles.h3]: tag === "h3",
+    })} {...props}>
+      {children}
+    </h1>
   );
 };
