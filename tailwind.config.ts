@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
@@ -7,7 +8,15 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+
     extend: {
+      gridTemplateRows: {
+        "main": "auto 1fr auto"
+      },
+      gridTemplateColumns: {
+        "mobile": "minmax(32rem, 1fr)",
+        "main": "auto 23rem minmax(32rem, 120rem) auto"
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -18,6 +27,12 @@ const config: Config = {
       // }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase }) {
+      addBase({
+        html: { fontSize: '10px' },
+      });
+    }),
+  ],
 };
 export default config;

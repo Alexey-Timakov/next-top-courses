@@ -15,14 +15,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${notoSans.className}`}>
-        <Header />
-        <div>
-          <Sidebar />
-          <div>
+        <div className="layout md:layout-main grid grid-rows-main grid-cols-mobile md:grid-cols-main min-h-screen">
+          <Header className="header block md:hidden" />
+          <Sidebar className="sidebar hidden md:block" />
+          <div className="site-content">
             {children}
           </div>
+          <Footer className="footer" />
         </div>
-        <Footer />
       </body>
     </html>
   );

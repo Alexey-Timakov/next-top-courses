@@ -22,3 +22,34 @@ body {
   color: var(--black);
   background: #F5F6F8;
 }
+
+.layout {
+  grid-template-areas:
+    "header"
+    "site-content"
+    "footer";
+}
+
+@layer components {
+  .layout-main {
+    grid-template-areas: ". header header ."
+      ". sidebar site-content ."
+      "footer footer footer footer"
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.site-content {
+  grid-area: site-content;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.footer {
+  grid-area: footer;
+}
