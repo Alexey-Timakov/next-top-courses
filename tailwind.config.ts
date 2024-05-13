@@ -14,8 +14,9 @@ const config: Config = {
         "main": "auto 1fr auto"
       },
       gridTemplateColumns: {
-        "mobile": "minmax(32rem, 1fr)",
-        "main": "auto 23rem minmax(32rem, 120rem) auto"
+        "layout-main": "auto 23rem minmax(32rem, 120rem) auto",
+        "layout-mobile": "minmax(32rem, 1fr)",
+        "footer-main": "1fr auto auto",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

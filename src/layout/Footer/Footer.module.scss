@@ -1,0 +1,15 @@
+.footer {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  color: var(--white);
+  background-color: var(--primary);
+
+  >a {
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--white-hover);
+    }
+  }
+}
