@@ -1,11 +1,35 @@
-"use client";
-
 import { Button, Htag, Paragraph, Tag } from "@/components";
-import { Rating, TRating } from "@/components";
-import { useState } from "react";
+import { MenuItem } from "../interfaces/menu.interface";
+// import { Rating, TRating } from "@/components";
+// import { useState } from "react";
 
-export default function Home() {
-  const [rating, setRating] = useState<TRating>(3);
+async function fetchMenu(): Promise<MenuItem[] | null> {
+  const firstCategory = 0;
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ firstCategory }),
+    cache: "force-cache"
+  });
+
+  if (!res.ok) {
+    return null;
+  }
+
+  if (res.ok) {
+    const menuCategories: MenuItem[] = await res.json();
+
+    return menuCategories;
+  }
+};
+
+export default async function Home() {
+  // const [rating, setRating] = useState<TRating>(3);
+
+  const menu = await fetchMenu();
 
   return (
     <>
@@ -22,7 +46,10 @@ export default function Home() {
       <Tag color="red" size="med">Red</Tag>
       <Tag color="primary">Primary</Tag>
       <Tag color="grey" size="med">Gray</Tag>
-      <Rating className="flex flex-row" rating={rating} isEditable={true} setRating={setRating} />
+      <ul>
+        {menu.map(m => <li key={m._id.secondCategory}>{m._id.secondCategory}</li>)}
+      </ul>
+      {/* <Rating className="flex flex-row" rating={rating} isEditable={true} setRating={setRating} /> */}
     </>
   );
 }

@@ -8,7 +8,6 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-
     extend: {
       gridTemplateRows: {
         "main": "auto 1fr auto"
