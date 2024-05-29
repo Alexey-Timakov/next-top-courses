@@ -1,6 +1,6 @@
-import { MenuItem } from "@/interfaces/menu.interface";
+import { SecondLevelMenuItem } from "@/interfaces/menu.interface";
 
-export async function fetchMenu(category: number): Promise<MenuItem[] | null> {
+export async function fetchMenu(category: number): Promise<SecondLevelMenuItem[] | null> {
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
     method: "POST",
@@ -12,7 +12,7 @@ export async function fetchMenu(category: number): Promise<MenuItem[] | null> {
   });
 
   if (res.ok) {
-    const menuCategories: MenuItem[] = await res.json();
+    const menuCategories: SecondLevelMenuItem[] = await res.json();
 
     return menuCategories;
   }

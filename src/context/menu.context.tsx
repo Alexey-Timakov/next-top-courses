@@ -1,24 +1,24 @@
 "use client";
 
-import { MenuItem } from "@/interfaces/menu.interface";
-import { TopLevelCategory } from "@/interfaces/toppage.interface";
+import { SecondLevelMenuItem } from "@/interfaces/menu.interface";
+import { FirstLevelCategory } from "@/interfaces/toppage.interface";
 import { PropsWithChildren, createContext, useState } from "react";
 
 export interface IMenuContext {
-  menu: MenuItem[];
-  firstCategory: TopLevelCategory;
-  setMenu?: (newMenu: MenuItem[]) => void
+  menu: SecondLevelMenuItem[];
+  firstCategory: FirstLevelCategory;
+  setMenu?: (newMenu: SecondLevelMenuItem[]) => void
 };
 
 export const MenuContext = createContext<IMenuContext>({
   menu: [],
-  firstCategory: TopLevelCategory.Courses,
+  firstCategory: FirstLevelCategory.Courses,
 });
 
 export const MenuContextProvider = ({ menu, firstCategory, children }: PropsWithChildren<IMenuContext>) => {
-  const [menuState, setMenuState] = useState<MenuItem[]>(menu);
+  const [menuState, setMenuState] = useState<SecondLevelMenuItem[]>(menu);
 
-  const setMenu = (newMenu: MenuItem[]) => {
+  const setMenu = (newMenu: SecondLevelMenuItem[]) => {
     setMenuState(newMenu);
   };
 

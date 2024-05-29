@@ -5,7 +5,8 @@ import { notFound } from 'next/navigation';
 
 const firstCategory = 0;
 
-export const dynamicParams = false;
+// Using dynamicParams = false; with output: 'export' is redundant and incompatible.
+// export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const menu = await fetchMenu(firstCategory);

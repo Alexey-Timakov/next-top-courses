@@ -1,1 +1,64 @@
-/* stylelint-disable no-empty-source */
+.menu {
+  margin: 0;
+}
+
+.first-level {
+  cursor: pointer;
+  height: 2.4rem;
+  color: var(--grey-dark);
+
+  >span {
+    align-self: flex-start;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+  }
+}
+
+.first-level-opened,
+.first-level:hover {
+  color: var(--primary);
+
+  >svg {
+    fill: var(--primary);
+  }
+}
+
+.second-level-block {
+  border-left: 0.1rem solid #DFDFDF;
+}
+
+.second-level {
+  cursor: pointer;
+
+  >span {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6rem;
+    text-transform: uppercase;
+  }
+
+}
+
+.third-level-block {
+  display: block;
+}
+
+.third-level-block-opened:last-child {
+  margin-bottom: 2rem;
+}
+
+.third-level {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.9rem;
+
+  &:hover {
+    color: var(--primary);
+  }
+}
+
+.third-level-active {
+  color: var(--primary);
+}

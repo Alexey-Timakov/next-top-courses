@@ -5,6 +5,7 @@ const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/layout/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -16,6 +17,7 @@ const config: Config = {
         "layout-main": "auto 23rem minmax(32rem, 120rem) auto",
         "layout-mobile": "minmax(32rem, 1fr)",
         "footer-main": "1fr auto auto",
+        "side-menu": "2.4rem 1fr"
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
