@@ -22,14 +22,11 @@ export const Menu = (): JSX.Element => {
   const currentPath = usePathname();
 
   const proceedLink = (e: MouseEvent<HTMLDivElement>, link: string) => {
-    console.log("click", link);
-
     e.stopPropagation();
     router.push(link);
   };
 
   const toggleSecondCategoryMenu = (e: MouseEvent<HTMLElement>, secondCategory: string) => {
-    console.log("toggle");
     e.stopPropagation();
     setMenu && setMenu(menu.map(m => {
       if (m._id.secondCategory === secondCategory) {
