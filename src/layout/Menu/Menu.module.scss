@@ -41,11 +41,15 @@
 }
 
 .third-level-block {
-  display: block;
+  display: none;
 }
 
-.third-level-block-opened:last-child {
-  margin-bottom: 2rem;
+.third-level-block-opened {
+  display: block;
+
+  &:last-child {
+    margin-bottom: 2rem;
+  }
 }
 
 .third-level {

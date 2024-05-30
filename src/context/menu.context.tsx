@@ -19,7 +19,8 @@ export const MenuContextProvider = ({ menu, firstCategory, children }: PropsWith
   const [menuState, setMenuState] = useState<SecondLevelMenuItem[]>(menu);
 
   const setMenu = (newMenu: SecondLevelMenuItem[]) => {
-    setMenuState(newMenu);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setMenuState(prev => newMenu);
   };
 
   return <MenuContext.Provider value={{ menu: menuState, firstCategory, setMenu }}>

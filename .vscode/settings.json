@@ -19,5 +19,6 @@
     "css",
     "scss"
   ],
-  "tailwindCSS.rootFontSize": 10
+  "tailwindCSS.rootFontSize": 10,
+  "javascript.memoryLimit": 8192
 }
