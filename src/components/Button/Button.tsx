@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, PropsWithChildren, ReactElement } from "react";
 import styles from "./Button.module.scss";
 import cn from "classnames";
-import { Arrow } from "@/app/icons";
+import { ArrowIcon } from "@/app/icons";
 
 type TAppearence = "primary" | "ghost";
 type TArrow = "right" | "down" | "none";
@@ -22,7 +22,7 @@ export const Button: FC<PropsWithChildren<IButton>> = ({ appearence, arrow = "no
       {children}
       {arrow !== "none" &&
         <span className={cn(styles.arrow, { [styles.down]: arrow === "down" })}>
-          <Arrow />
+          <ArrowIcon />
         </span>
       }
     </button>

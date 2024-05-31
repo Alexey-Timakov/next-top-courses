@@ -19,3 +19,7 @@ export interface ThirdLevelMenuItem {
   _id: string;
   category: string;
 };
+
+export type WholeMenu = {
+  [key in FirstLevelCategory]: SecondLevelMenuItem[];
+};

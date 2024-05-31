@@ -5,7 +5,7 @@ export const CoursesIcon = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    fill="#7653FC"
+    fill="#787D85"
     {...props}
   >
     <path

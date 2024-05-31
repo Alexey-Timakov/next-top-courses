@@ -1,6 +1,6 @@
 import { SVGProps } from "react";
 
-export const Arrow = (props: SVGProps<SVGSVGElement>) => (
+export const ArrowIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width={6}
     height={10}

@@ -2,28 +2,29 @@
 import styles from "./Menu.module.scss";
 import { MenuContext } from "@/context/menu.context";
 import { useContext, MouseEvent } from "react";
-import { FirstLevelMenuItem, ThirdLevelMenuItem } from "@/interfaces/menu.interface";
-import { FirstLevelCategory } from "@/interfaces/toppage.interface";
+import { ThirdLevelMenuItem } from "@/interfaces/menu.interface";
 import cn from "classnames";
-import { CoursesIcon } from "./icons/CoursesIcon";
-import { ServicesIcon } from "./icons/ServicesIcon";
-import { KidsIcon } from "./icons/KidsIcon";
 import { useRouter, usePathname } from 'next/navigation';
-
-const firstLevelMenu: FirstLevelMenuItem[] = [
-  { route: "courses", name: "Курсы", id: FirstLevelCategory.Courses, icon: <CoursesIcon /> },
-  { route: "services", name: "Сервисы", id: FirstLevelCategory.Services, icon: <ServicesIcon /> },
-  { route: "kids", name: "Детям", id: FirstLevelCategory.Kids, icon: <KidsIcon /> },
-];
+import { firstLevelMenu } from "@/helpers/menu.helper";
+import { FirstLevelCategory } from "@/interfaces/toppage.interface";
 
 export const Menu = (): JSX.Element => {
-  const { menu, setMenu, firstCategory } = useContext(MenuContext);
+  const { wholeMenu, menu, setMenu, firstCategory } = useContext(MenuContext);
   const router = useRouter();
   const currentPath = usePathname();
 
-  const proceedLink = (e: MouseEvent<HTMLDivElement>, link: string) => {
-    e.stopPropagation();
+  const proceedLink = (link: string, e?: MouseEvent<HTMLDivElement>) => {
+    if (e) {
+      e.stopPropagation();
+    }
     router.push(link);
+  };
+
+  const openFirstLevelMenu = (e: MouseEvent<HTMLDivElement>, fl: FirstLevelCategory) => {
+    e.stopPropagation();
+    setMenu && setMenu(wholeMenu[fl]);
+    const link = firstLevelMenu.find(item => item.id === fl)?.route || "";
+    proceedLink(`/${link}`);
   };
 
   const toggleSecondCategoryMenu = (e: MouseEvent<HTMLElement>, secondCategory: string) => {
@@ -38,7 +39,7 @@ export const Menu = (): JSX.Element => {
 
   const buildFirstLevelMenu = () => {
     return firstLevelMenu.map(fl => (
-      <div key={fl.route} onClick={(e) => proceedLink(e, `/${fl.route}`)}>
+      <div key={fl.route} onClick={(e) => openFirstLevelMenu(e, fl.id)}>
         <div className={cn(styles["first-level"], "mt-8 grid content-center grid-cols-side-menu gap-x-8", {
           [styles["first-level-opened"]]: firstCategory === fl.id
         })}>
@@ -82,7 +83,7 @@ export const Menu = (): JSX.Element => {
     return (
       thirdLevelmenu.map(tl => (
         <div
-          onClick={(e) => proceedLink(e, `/${categoryRoute}/${tl.alias}`)}
+          onClick={(e) => proceedLink(`/${categoryRoute}/${tl.alias}`, e)}
           key={tl.alias}
           className={cn(styles["third-level"], "mb-4", {
             [styles["third-level-active"]]: `/${categoryRoute}/${tl.alias}` === currentPath

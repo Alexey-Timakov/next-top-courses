@@ -1,6 +1,8 @@
-import { SecondLevelMenuItem } from "@/interfaces/menu.interface";
+import { firstLevelMenu } from "@/helpers/menu.helper";
+import { SecondLevelMenuItem, WholeMenu } from "@/interfaces/menu.interface";
+import { FirstLevelCategory } from "@/interfaces/toppage.interface";
 
-export async function fetchMenu(category: number): Promise<SecondLevelMenuItem[] | null> {
+export async function fetchMenu(category: FirstLevelCategory): Promise<SecondLevelMenuItem[] | null> {
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
     method: "POST",
@@ -19,3 +21,30 @@ export async function fetchMenu(category: number): Promise<SecondLevelMenuItem[]
 
   else return null;
 };
+
+export async function fetchWholeMenu(): Promise<WholeMenu | null> {
+  const wholeMenu = {} as WholeMenu;
+  try {
+    for (const fl of firstLevelMenu) {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/top-page/find`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ "firstCategory": fl.id }),
+        cache: "force-cache"
+      });
+
+      if (res.ok) {
+        const menuCategories: SecondLevelMenuItem[] = await res.json();
+
+        wholeMenu[fl.id] = menuCategories;
+      }
+    }
+
+    return wholeMenu;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}

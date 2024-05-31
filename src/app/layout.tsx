@@ -3,7 +3,8 @@ import "./globals.scss";
 import { notoSans } from "./fonts";
 import { Footer, Header, Sidebar } from "@/layout";
 import { MenuContextProvider } from "@/context/menu.context";
-import { fetchMenu } from "@/api/fetchMenu";
+import { fetchWholeMenu } from "@/api/fetchMenu";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: {
@@ -14,15 +15,17 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const wholeMenu = await fetchWholeMenu();
 
-  const firstCategory = 0;
-  const menu = await fetchMenu(firstCategory);
+  if (!wholeMenu) {
+    return notFound();
+  }
 
   return (
     <html lang="en">
       <body className={`${notoSans.className}`}>
         <div className="layout md:layout-main grid grid-rows-main grid-cols-layout-mobile md:grid-cols-layout-main gap-x-12 min-h-screen">
-          <MenuContextProvider menu={menu || []} firstCategory={firstCategory}>
+          <MenuContextProvider wholeMenu={wholeMenu || {}}>
             <Header className="header block md:hidden" />
             <Sidebar className="sidebar hidden md:block" />
           </MenuContextProvider>

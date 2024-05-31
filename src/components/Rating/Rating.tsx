@@ -1,6 +1,6 @@
 "use client";
 
-import { Star } from "@/app/icons";
+import { StarIcon } from "@/app/icons";
 import cn from "classnames";
 import { DetailedHTMLProps, HTMLAttributes, KeyboardEvent, useEffect, useState } from "react";
 import styles from "./Rating.module.scss";
@@ -50,7 +50,7 @@ export const Rating = ({ rating, isEditable = false, setRating, ...props }: IRat
           onClick={() => onClickStar(index + 1 as TRating)}
 
         >
-          <Star
+          <StarIcon
             className={cn(styles.star, {
               [styles.filled]: index < currentRating,
               [styles.editable]: isEditable
