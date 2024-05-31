@@ -27,7 +27,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <div className="layout md:layout-main grid grid-rows-main grid-cols-layout-mobile md:grid-cols-layout-main gap-x-12 min-h-screen">
           <MenuContextProvider wholeMenu={wholeMenu || {}}>
             <Header className="header block md:hidden" />
-            <Sidebar className="sidebar hidden md:block" />
+            <Sidebar className="sidebar hidden md:grid" />
           </MenuContextProvider>
           <div className="site-content">
             {children}
