@@ -1,4 +1,4 @@
-import { CoursesIcon, KidsIcon, ServicesIcon } from "@/app/icons";
+import { CoursesIcon, KidsIcon, ServicesIcon } from "@/icons";
 import { FirstLevelMenuItem } from "@/interfaces/menu.interface";
 import { FirstLevelCategory } from "@/interfaces/toppage.interface";
 

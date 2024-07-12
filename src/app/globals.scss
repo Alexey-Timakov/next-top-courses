@@ -38,6 +38,12 @@ body {
       ". sidebar site-content ."
       "footer footer footer footer"
   }
+
+  .filled {
+    circle {
+      fill: var(--red)
+    }
+  }
 }
 
 .header {

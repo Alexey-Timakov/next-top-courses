@@ -1,6 +1,6 @@
 "use client";
 
-import { StarIcon } from "@/app/icons";
+import { StarIcon } from "@/icons";
 import cn from "classnames";
 import { DetailedHTMLProps, HTMLAttributes, KeyboardEvent, useEffect, useState } from "react";
 import styles from "./Rating.module.scss";

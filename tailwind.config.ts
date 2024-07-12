@@ -17,7 +17,7 @@ const config: Config = {
         "layout-main": "auto 23rem minmax(32rem, 120rem) auto",
         "layout-mobile": "minmax(32rem, 1fr)",
         "footer-main": "1fr auto auto",
-        "side-menu": "2.4rem 1fr"
+        "side-menu": "2.4rem 1fr",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

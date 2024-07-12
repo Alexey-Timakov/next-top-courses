@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, FC, PropsWithChildren, ReactElement } from "react";
 import styles from "./Button.module.scss";
 import cn from "classnames";
-import { ArrowIcon } from "@/app/icons";
+import { ArrowIcon } from "@/icons";
 
 type TAppearence = "primary" | "ghost";
 type TArrow = "right" | "down" | "none";

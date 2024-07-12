@@ -4,7 +4,9 @@ import { fetchProductsByAlias } from "@/api/fetchProductByAlias";
 import { notFound } from 'next/navigation';
 import { firstLevelMenu } from "@/helpers/menu.helper";
 import { ProductModel } from "@/interfaces/product.interface";
-import { SecondLevelMenuItem } from "@/interfaces/menu.interface";
+// import { SecondLevelMenuItem } from "@/interfaces/menu.interface";
+import { PageComponent } from "@/components";
+import { TopPageModel } from "@/interfaces/toppage.interface";
 
 // Using dynamicParams = false; with output: 'export' is redundant and incompatible.
 // export const dynamicParams = false;
@@ -44,13 +46,14 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
 
   if (!firstCategory) notFound();
 
-  let menu: SecondLevelMenuItem[] = [];
+  // let menu: SecondLevelMenuItem[] = [];
   let products: ProductModel[] = [];
+  let page = {} as TopPageModel | null;
 
   try {
-    menu = await fetchMenu(firstCategory.id) || [];
+    // menu = await fetchMenu(firstCategory.id) || [];
 
-    const page = await fetchPageByAlias(params.alias);
+    page = await fetchPageByAlias(params.alias);
 
     if (!page) notFound();
 
@@ -62,9 +65,6 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
   }
 
   return (
-    <>
-      <p>Menu - {menu?.length}</p>
-      <p>Products length - {products?.length}</p>
-    </>
+    <PageComponent page={page} products={products} firstCategory={firstCategory} />
   );
 };

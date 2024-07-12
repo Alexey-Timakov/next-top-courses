@@ -24,12 +24,12 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="en">
       <body className={`${notoSans.className}`}>
-        <div className="layout md:layout-main grid grid-rows-main grid-cols-layout-mobile md:grid-cols-layout-main gap-x-12 min-h-screen">
+        <div className="layout md:layout-main grid grid-rows-main grid-cols-layout-mobile md:grid-cols-layout-main gap-x-12 min-h-screen pt-16 pb-20">
           <MenuContextProvider wholeMenu={wholeMenu || {}}>
             <Header className="header block md:hidden" />
             <Sidebar className="sidebar hidden md:grid" />
           </MenuContextProvider>
-          <div className="site-content">
+          <div className="site-content p-6 lg:p-0">
             {children}
           </div>
           <Footer className="footer px-14 py-10 grid grid-cols-1 gap-x-16 gap-y-4 md:grid-cols-footer-main" />
