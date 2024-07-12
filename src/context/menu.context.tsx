@@ -10,7 +10,7 @@ export interface IMenuContext {
   wholeMenu: WholeMenu;
   menu: SecondLevelMenuItem[];
   firstCategory: FirstLevelCategory;
-  setMenu?: (newMenu: SecondLevelMenuItem[]) => void
+  setSecondLevelMenu?: (newMenu: SecondLevelMenuItem[]) => void
 };
 
 interface IMenuContextInitial {
@@ -25,7 +25,9 @@ export const MenuContext = createContext<IMenuContext>({
 
 export const MenuContextProvider = ({ wholeMenu, children }: PropsWithChildren<IMenuContextInitial>) => {
   const currentPathType = usePathname().split("/")[1];
+
   const currentPathId = firstLevelMenu.find(fl => fl.route === currentPathType)?.id || FirstLevelCategory.Courses;
+
   const [menuState, setMenuState] = useState<SecondLevelMenuItem[]>(wholeMenu[currentPathId]);
 
   const setMenu = (newMenu: SecondLevelMenuItem[]) => {
@@ -33,7 +35,13 @@ export const MenuContextProvider = ({ wholeMenu, children }: PropsWithChildren<I
     setMenuState(prev => newMenu);
   };
 
-  return <MenuContext.Provider value={{ wholeMenu, menu: menuState, firstCategory: currentPathId, setMenu }}>
+  return <MenuContext.Provider
+    value={{
+      wholeMenu,
+      menu: menuState,
+      firstCategory: currentPathId,
+      setSecondLevelMenu: setMenu
+    }}>
     {children}
   </MenuContext.Provider>;
 };

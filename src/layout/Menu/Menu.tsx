@@ -2,14 +2,13 @@
 import styles from "./Menu.module.scss";
 import { MenuContext } from "@/context/menu.context";
 import { useContext, MouseEvent } from "react";
-import { ThirdLevelMenuItem } from "@/interfaces/menu.interface";
+import { FirstLevelMenuItem, ThirdLevelMenuItem } from "@/interfaces/menu.interface";
 import cn from "classnames";
 import { useRouter, usePathname } from 'next/navigation';
 import { firstLevelMenu } from "@/helpers/menu.helper";
-import { FirstLevelCategory } from "@/interfaces/toppage.interface";
 
 export const Menu = (): JSX.Element => {
-  const { wholeMenu, menu, setMenu, firstCategory } = useContext(MenuContext);
+  const { wholeMenu, menu, setSecondLevelMenu, firstCategory } = useContext(MenuContext);
   const router = useRouter();
   const currentPath = usePathname();
 
@@ -20,16 +19,15 @@ export const Menu = (): JSX.Element => {
     router.push(link);
   };
 
-  const openFirstLevelMenu = (e: MouseEvent<HTMLDivElement>, fl: FirstLevelCategory) => {
+  const openFirstLevelMenu = (e: MouseEvent<HTMLDivElement>, fl: FirstLevelMenuItem) => {
     e.stopPropagation();
-    setMenu && setMenu(wholeMenu[fl]);
-    const link = firstLevelMenu.find(item => item.id === fl)?.route || "";
-    proceedLink(`/${link}`);
+    setSecondLevelMenu && setSecondLevelMenu(wholeMenu[fl.id]);
+    proceedLink(`/${fl.route}`);
   };
 
   const toggleSecondCategoryMenu = (e: MouseEvent<HTMLElement>, secondCategory: string) => {
     e.stopPropagation();
-    setMenu && setMenu(menu.map(m => {
+    setSecondLevelMenu && setSecondLevelMenu(menu.map(m => {
       if (m._id.secondCategory === secondCategory) {
         m.isOpened = !m.isOpened;
       }
@@ -39,7 +37,7 @@ export const Menu = (): JSX.Element => {
 
   const buildFirstLevelMenu = () => {
     return firstLevelMenu.map(fl => (
-      <div key={fl.route} onClick={(e) => openFirstLevelMenu(e, fl.id)}>
+      <div key={fl.route} onClick={(e) => openFirstLevelMenu(e, fl)}>
         <div className={cn(styles["first-level"], "mt-8 grid content-center grid-cols-side-menu gap-x-8", {
           [styles["first-level-opened"]]: firstCategory === fl.id
         })}>

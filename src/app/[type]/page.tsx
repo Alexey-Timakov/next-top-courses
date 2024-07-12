@@ -1,6 +1,27 @@
 import { notFound } from 'next/navigation';
 import { firstLevelMenu } from "@/helpers/menu.helper";
 
+// export async function generateStaticParams() {
+//   let pathes: Array<{ type: string, alias: string }> = [];
+
+//   try {
+//     for (const fl of firstLevelMenu) {
+//       const menu = await fetchMenu(fl.id);
+
+//       if (menu) {
+//         const result = menu.flatMap(item => item.pages.map(page => ({ type: fl.route, alias: page.alias }))
+//         );
+//         pathes = pathes.concat(result);
+//       }
+//     }
+//     return pathes;
+
+//   } catch (error) {
+//     console.error(error);
+//     notFound();
+//   }
+// }
+
 interface TopPageProps {
   params: {
     type: string;
