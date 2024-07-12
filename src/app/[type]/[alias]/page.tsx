@@ -2,7 +2,7 @@ import { fetchMenu } from "@/api/fetchMenu";
 import { fetchPageByAlias } from "@/api/fetchPageByAlias";
 import { fetchProductsByAlias } from "@/api/fetchProductByAlias";
 import { notFound } from 'next/navigation';
-import { firstLevelMenu } from "@/helpers/menu.helper";
+import { firstLevelMenu } from "@/helpers";
 import { ProductModel } from "@/interfaces/product.interface";
 // import { SecondLevelMenuItem } from "@/interfaces/menu.interface";
 import { PageComponent } from "@/components";

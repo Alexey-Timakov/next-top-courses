@@ -6,3 +6,5 @@ export * from "./Rating/Rating";
 export { PageComponent } from "./PageComponent/PageComponent";
 export { Card } from "./Card/Card";
 export { VacancyBlock } from "./VacancyBlock/VacancyBlock";
+export { AdvantagesBlock } from "./AdvantagesBlock/AdvantagesBlock";
+export { ParseStringBlock } from "./ParseStringBlock/ParseStringBlock";

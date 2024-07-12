@@ -1,4 +1,4 @@
-import { firstLevelMenu } from "@/helpers/menu.helper";
+import { firstLevelMenu } from "@/helpers";
 import { SecondLevelMenuItem, WholeMenu } from "@/interfaces/menu.interface";
 import { FirstLevelCategory } from "@/interfaces/toppage.interface";
 

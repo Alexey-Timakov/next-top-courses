@@ -2,7 +2,7 @@ import { FirstLevelCategory, TopPageModel } from "@/interfaces/toppage.interface
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { ProductModel } from "@/interfaces/product.interface";
 import { FirstLevelMenuItem } from "@/interfaces/menu.interface";
-import { Htag, VacancyBlock, Tag } from "@/components";
+import { Htag, VacancyBlock, Tag, AdvantagesBlock, ParseStringBlock } from "@/components";
 
 interface IPageComponent extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   page: TopPageModel;
@@ -11,6 +11,7 @@ interface IPageComponent extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement
 }
 
 export const PageComponent = ({ page, products, firstCategory }: IPageComponent) => {
+
   return (
     <>
       <div className="grid grid-cols-[auto_1fr_auto] items-baseline justify-items-start gap-x-8 mb-8">
@@ -28,7 +29,28 @@ export const PageComponent = ({ page, products, firstCategory }: IPageComponent)
         <Tag color="red" size="med">hh.ru</Tag>
       </div>
 
-      {firstCategory.id === FirstLevelCategory.Courses && <VacancyBlock data={page.hh} />}
+      {firstCategory.id === FirstLevelCategory.Courses &&
+        page.hh &&
+        <VacancyBlock data={page.hh} />
+      }
+
+      {page.advantages && page.advantages.length > 0 &&
+        <>
+          <Htag tag="h2" className="!mb-11">Преимущества</Htag>
+          <AdvantagesBlock data={page.advantages} />
+        </>
+      }
+
+      {page.seoText && <ParseStringBlock text={page.seoText} />}
+
+      <Htag tag="h2" className="!mb-11">Получаемые навыки</Htag>
+      <div className="flex flex-grow gap-4 flex-wrap">
+        {page.tags.map(tag => {
+          return (
+            <Tag color="primary" className="!m-0 first-letter:uppercase" key={tag}>{tag}</Tag>
+          );
+        })}
+      </div>
     </>
   );
 };

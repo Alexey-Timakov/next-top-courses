@@ -5,7 +5,7 @@ import { useContext, MouseEvent } from "react";
 import { FirstLevelMenuItem, ThirdLevelMenuItem } from "@/interfaces/menu.interface";
 import cn from "classnames";
 import { useRouter, usePathname } from 'next/navigation';
-import { firstLevelMenu } from "@/helpers/menu.helper";
+import { firstLevelMenu } from "@/helpers";
 
 export const Menu = (): JSX.Element => {
   const { wholeMenu, menu, setSecondLevelMenu, firstCategory } = useContext(MenuContext);

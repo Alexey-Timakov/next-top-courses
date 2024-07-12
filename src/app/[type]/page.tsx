@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { firstLevelMenu } from "@/helpers/menu.helper";
+import { firstLevelMenu } from "@/helpers";
 
 // export async function generateStaticParams() {
 //   let pathes: Array<{ type: string, alias: string }> = [];

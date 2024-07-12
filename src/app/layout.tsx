@@ -24,7 +24,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="en">
       <body className={`${notoSans.className}`}>
-        <div className="layout md:layout-main grid grid-rows-main grid-cols-layout-mobile md:grid-cols-layout-main gap-x-12 min-h-screen pt-16 pb-20">
+        <div className="layout md:layout-main grid grid-rows-main grid-cols-layout-mobile md:grid-cols-layout-main gap-x-12 gap-y-16 min-h-screen">
           <MenuContextProvider wholeMenu={wholeMenu || {}}>
             <Header className="header block md:hidden" />
             <Sidebar className="sidebar hidden md:grid" />
