@@ -1,4 +1,4 @@
-import { Htag, Button, Paragraph, Tag } from "@/ui";
+import { Htag, Button, Paragraph, Tag, Input, InputArea } from "@/ui";
 
 export default function Home(): JSX.Element {
   return (
@@ -16,8 +16,8 @@ export default function Home(): JSX.Element {
       <Tag color="red" size="med">Red</Tag>
       <Tag color="primary">Primary</Tag>
       <Tag color="grey" size="med">Gray</Tag>
-
-      {/* <Rating className="flex flex-row" rating={rating} isEditable={true} setRating={setRating} /> */}
+      <Input placeholder="Тест" />
+      <InputArea placeholder="Тест area" />
     </>
   );
 }
