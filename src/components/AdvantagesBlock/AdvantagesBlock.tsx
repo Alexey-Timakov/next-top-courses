@@ -1,4 +1,4 @@
-import { TopPageAdvantage } from "@/interfaces/toppage.interface";
+import { TopPageAdvantage } from "@/interfaces";
 import advantagesIcon from "@/icons/AdvantagesIcon.png";
 import Image from "next/image";
 

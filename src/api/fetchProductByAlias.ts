@@ -1,4 +1,4 @@
-import { ProductModel } from "@/interfaces/product.interface";
+import { ProductModel } from "@/interfaces";
 
 export async function fetchProductsByAlias(alias: string, limit: number = 10): Promise<ProductModel[] | null> {
 

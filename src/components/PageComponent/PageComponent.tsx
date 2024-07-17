@@ -1,52 +1,23 @@
-"use client";
-
-import { FirstLevelCategory, TopPageModel } from "@/interfaces/toppage.interface";
-import { DetailedHTMLProps, HTMLAttributes, useReducer } from "react";
-import { ProductModel } from "@/interfaces/product.interface";
-import { FirstLevelMenuItem } from "@/interfaces/menu.interface";
-import { Htag, VacancyBlock, Tag, AdvantagesBlock, ParseStringBlock, SortSwitcher } from "@/components";
-import { TSort, sortReducer } from "../SortSwitcher/SortSwitcher";
+import { TopPageModel, ProductModel, FirstLevelMenuItem } from "@/interfaces";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { AdvantagesBlock, ParseStringBlock } from "@/components";
+import { Htag, Tag } from "@/ui";
+import { PageTopBlock } from "./PageTopBlock";
+import { PageVacanciesBlock } from "./PageVacanciesBlock";
 
 interface IPageComponent extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   page: TopPageModel;
   products: ProductModel[];
   firstCategory: FirstLevelMenuItem;
-}
+};
 
 export const PageComponent = ({ page, products, firstCategory }: IPageComponent) => {
-  const [{ products: sortedProducts, currentSort }, dispathSort] = useReducer(sortReducer, { products: products, currentSort: TSort.price });
 
   return (
     <>
-      <div className="grid grid-cols-[auto_1fr_auto] items-baseline justify-items-start gap-x-8 mb-8">
-        <Htag tag="h1">{page.title}</Htag>
-        {products.length > 0 &&
-          <>
-            <Tag color="grey" size="med">{products.length}</Tag>
-            <SortSwitcher changeSort={(sort) => dispathSort({ type: sort })} currentSort={currentSort} />
-          </>
-        }
-      </div>
+      <PageTopBlock title={page.title} products={products} />
 
-      {sortedProducts &&
-        sortedProducts.map(p => {
-          return (
-            <div key={p._id} className="text-xl">
-              {p.title} - {p.price} - {p.initialRating}
-            </div>
-          );
-        })
-      }
-
-      <div className="grid grid-cols-[auto_1fr] items-baseline justify-items-start gap-x-8 mb-10">
-        <Htag tag="h2">Вакансии - {page.category}</Htag>
-        <Tag color="red" size="med">hh.ru</Tag>
-      </div>
-
-      {firstCategory.id === FirstLevelCategory.Courses &&
-        page.hh &&
-        <VacancyBlock data={page.hh} />
-      }
+      <PageVacanciesBlock category={page.category} firstCategory={firstCategory} data={page.hh} />
 
       {page.advantages && page.advantages.length > 0 &&
         <>

@@ -1,6 +1,5 @@
 import { CoursesIcon, KidsIcon, ServicesIcon } from "@/icons";
-import { FirstLevelMenuItem } from "@/interfaces/menu.interface";
-import { FirstLevelCategory } from "@/interfaces/toppage.interface";
+import { FirstLevelMenuItem, FirstLevelCategory } from "@/interfaces";
 
 export const firstLevelMenu: FirstLevelMenuItem[] = [
   { route: "courses", name: "Курсы", id: FirstLevelCategory.Courses, icon: <CoursesIcon /> },

@@ -1,6 +1,5 @@
 import { firstLevelMenu } from "@/helpers";
-import { SecondLevelMenuItem, WholeMenu } from "@/interfaces/menu.interface";
-import { FirstLevelCategory } from "@/interfaces/toppage.interface";
+import { SecondLevelMenuItem, WholeMenu, FirstLevelCategory } from "@/interfaces";
 
 export async function fetchMenu(category: FirstLevelCategory): Promise<SecondLevelMenuItem[] | null> {
 

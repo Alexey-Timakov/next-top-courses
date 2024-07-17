@@ -1,36 +1,7 @@
 import { SortIcon } from "@/icons";
 import { DetailedHTMLProps, HTMLAttributes, ReactElement } from "react";
 import cn from "classnames";
-import { ProductModel } from "@/interfaces/product.interface";
-
-export enum TSort {
-  "rating",
-  "price"
-};
-
-export type TSortActions = { type: TSort.price } | { type: TSort.rating };
-
-export type TSortReducerState = {
-  products: ProductModel[];
-  currentSort: TSort;
-};
-
-export const sortReducer = (state: TSortReducerState, action: TSortActions): TSortReducerState => {
-  switch (action.type) {
-    case TSort.rating:
-      return {
-        currentSort: TSort.rating,
-        products: state.products.sort((a, b) => a.initialRating > b.initialRating ? -1 : 1)
-      };
-    case TSort.price:
-      return {
-        currentSort: TSort.price,
-        products: state.products.sort((a, b) => a.price > b.price ? 1 : -1)
-      };
-    default:
-      return state;
-  }
-};
+import { TSort } from "@/reducers";
 
 interface ISortSwitcher extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   currentSort: TSort;

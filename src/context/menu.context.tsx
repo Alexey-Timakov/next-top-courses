@@ -1,8 +1,7 @@
 "use client";
 
 import { firstLevelMenu } from "@/helpers";
-import { SecondLevelMenuItem, WholeMenu } from "@/interfaces/menu.interface";
-import { FirstLevelCategory } from "@/interfaces/toppage.interface";
+import { SecondLevelMenuItem, WholeMenu, FirstLevelCategory } from "@/interfaces";
 import { usePathname } from "next/navigation";
 import { PropsWithChildren, createContext, useState } from "react";
 

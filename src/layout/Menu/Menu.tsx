@@ -2,7 +2,7 @@
 import styles from "./Menu.module.scss";
 import { MenuContext } from "@/context/menu.context";
 import { useContext, MouseEvent } from "react";
-import { FirstLevelMenuItem, ThirdLevelMenuItem } from "@/interfaces/menu.interface";
+import { FirstLevelMenuItem, ThirdLevelMenuItem } from "@/interfaces";
 import cn from "classnames";
 import { useRouter, usePathname } from 'next/navigation';
 import { firstLevelMenu } from "@/helpers";

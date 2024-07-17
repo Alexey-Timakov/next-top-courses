@@ -1,4 +1,4 @@
-import { Button, Htag, Paragraph, Tag } from "@/components";
+import { Htag, Button, Paragraph, Tag } from "@/ui";
 
 export default function Home(): JSX.Element {
   return (

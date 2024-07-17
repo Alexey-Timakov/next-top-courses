@@ -1,4 +1,4 @@
-import { TopPageModel } from "@/interfaces/toppage.interface";
+import { TopPageModel } from "@/interfaces";
 
 export async function fetchPageByAlias(alias: string): Promise<TopPageModel | null> {
 

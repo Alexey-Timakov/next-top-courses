@@ -4,8 +4,7 @@ import { StarIcon } from "@/icons";
 import cn from "classnames";
 import { DetailedHTMLProps, HTMLAttributes, KeyboardEvent, useEffect, useState } from "react";
 import styles from "./Rating.module.scss";
-
-export type TRating = 0 | 1 | 2 | 3 | 4 | 5;
+import { TRating } from "@/interfaces";
 
 interface IRating extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   rating: TRating;

@@ -1,11 +1,5 @@
-export { Htag } from "./Htag/Htag.tsx";
-export { Button } from "./Button/Button.tsx";
-export { Paragraph } from "./Paragraph/Paragraph.tsx";
-export { Tag } from "./Tag/Tag.tsx";
-export * from "./Rating/Rating.tsx";
 export { PageComponent } from "./PageComponent/PageComponent.tsx";
-export { Card } from "./Card/Card.tsx";
-export { VacancyBlock } from "./VacancyBlock/VacancyBlock.tsx";
+export { Card } from "../ui/Card/Card.tsx";
 export { AdvantagesBlock } from "./AdvantagesBlock/AdvantagesBlock.tsx";
 export { ParseStringBlock } from "./ParseStringBlock/ParseStringBlock.tsx";
 export { SortSwitcher } from "./SortSwitcher/SortSwitcher.tsx";
