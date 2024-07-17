@@ -19,7 +19,7 @@ export const PageComponent = ({ page, products, firstCategory }: IPageComponent)
 
       <PageVacanciesBlock category={page.category} firstCategory={firstCategory} data={page.hh} />
 
-      {page.advantages && page.advantages.length > 0 &&
+      {page.advantages && page.advantages.length > 0 && page.advantages[0].title.length &&
         <>
           <Htag tag="h2" className="!mb-11">Преимущества</Htag>
           <AdvantagesBlock data={page.advantages} />

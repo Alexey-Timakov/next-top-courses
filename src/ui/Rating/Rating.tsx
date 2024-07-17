@@ -3,7 +3,6 @@
 import { StarIcon } from "@/icons";
 import cn from "classnames";
 import { DetailedHTMLProps, HTMLAttributes, KeyboardEvent, useEffect, useState } from "react";
-import styles from "./Rating.module.scss";
 import { TRating } from "@/interfaces";
 
 interface IRating extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -50,9 +49,9 @@ export const Rating = ({ rating, isEditable = false, setRating, ...props }: IRat
 
         >
           <StarIcon
-            className={cn(styles.star, {
-              [styles.filled]: index < currentRating,
-              [styles.editable]: isEditable
+            className={cn({
+              ["fill-[var(--primary)]"]: index < currentRating,
+              ["cursor-pointer"]: isEditable
             })}
             tabIndex={isEditable ? 0 : -1}
             onKeyDown={(e: KeyboardEvent<SVGElement>) => onSpaceStar(e, index + 1 as TRating)}
@@ -70,7 +69,7 @@ export const Rating = ({ rating, isEditable = false, setRating, ...props }: IRat
   }, [rating]);
 
   return (
-    <div {...props}>
+    <div {...props} className="flex flex-row flex-nowrap gap-2">
       {ratingArray.map((r, index) => {
         return (
           <span key={index}>{r}</span>

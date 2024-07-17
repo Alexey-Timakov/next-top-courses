@@ -6,3 +6,4 @@ export { Tag } from "./Tag/Tag.tsx";
 export * from "./Rating/Rating.tsx";
 export { Input } from "./Input/Input.tsx";
 export { InputArea } from "./InputArea/InputArea.tsx";
+export { HrLine } from "./HrLine/HrLine.tsx";

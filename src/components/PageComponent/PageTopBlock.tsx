@@ -4,7 +4,7 @@ import { ProductModel } from "@/interfaces";
 import { TSort, sortReducer } from "@/reducers";
 import { Htag, Tag } from "@/ui";
 import { useReducer } from "react";
-import { SortSwitcher } from "@/components";
+import { ProductElement, SortSwitcher } from "@/components";
 
 interface IPageTopBlock {
   title: string;
@@ -29,9 +29,7 @@ export const PageTopBlock = ({ title, products }: IPageTopBlock) => {
       {sortedProducts &&
         sortedProducts.map(p => {
           return (
-            <div key={p._id} className="text-xl">
-              {p.title} - {p.price} - {p.initialRating}
-            </div>
+            <ProductElement product={p} key={p._id} />
           );
         })
       }
