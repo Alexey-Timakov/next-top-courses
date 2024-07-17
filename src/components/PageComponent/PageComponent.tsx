@@ -1,8 +1,11 @@
+"use client";
+
 import { FirstLevelCategory, TopPageModel } from "@/interfaces/toppage.interface";
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useReducer } from "react";
 import { ProductModel } from "@/interfaces/product.interface";
 import { FirstLevelMenuItem } from "@/interfaces/menu.interface";
-import { Htag, VacancyBlock, Tag, AdvantagesBlock, ParseStringBlock } from "@/components";
+import { Htag, VacancyBlock, Tag, AdvantagesBlock, ParseStringBlock, SortSwitcher } from "@/components";
+import { TSort, sortReducer } from "../SortSwitcher/SortSwitcher";
 
 interface IPageComponent extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   page: TopPageModel;
@@ -11,6 +14,7 @@ interface IPageComponent extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement
 }
 
 export const PageComponent = ({ page, products, firstCategory }: IPageComponent) => {
+  const [{ products: sortedProducts, currentSort }, dispathSort] = useReducer(sortReducer, { products: products, currentSort: TSort.price });
 
   return (
     <>
@@ -19,10 +23,20 @@ export const PageComponent = ({ page, products, firstCategory }: IPageComponent)
         {products.length > 0 &&
           <>
             <Tag color="grey" size="med">{products.length}</Tag>
-            <span className="text-2xl">Сортировка</span>
+            <SortSwitcher changeSort={(sort) => dispathSort({ type: sort })} currentSort={currentSort} />
           </>
         }
       </div>
+
+      {sortedProducts &&
+        sortedProducts.map(p => {
+          return (
+            <div key={p._id} className="text-xl">
+              {p.title} - {p.price} - {p.initialRating}
+            </div>
+          );
+        })
+      }
 
       <div className="grid grid-cols-[auto_1fr] items-baseline justify-items-start gap-x-8 mb-10">
         <Htag tag="h2">Вакансии - {page.category}</Htag>
