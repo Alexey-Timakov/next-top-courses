@@ -17,7 +17,7 @@ export const sortReducer = (state: TSortReducerState, action: TSortActions): TSo
     case TSort.rating:
       return {
         currentSort: TSort.rating,
-        products: state.products.sort((a, b) => a.initialRating > b.initialRating ? -1 : 1)
+        products: state.products.sort((a, b) => a.initialRating > b.initialRating ? 1 : -1)
       };
     case TSort.price:
       return {
