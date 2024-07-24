@@ -16,7 +16,7 @@ export const PageTopBlock = ({ title, products }: IPageTopBlock) => {
 
   return (
     <>
-      <div className="grid grid-cols-[auto_1fr_auto] items-baseline justify-items-start gap-x-8 mb-8">
+      <div className="grid grid-cols-[auto_1fr] gap-y-6 sm:grid-cols-[auto_1fr_auto] items-baseline justify-items-start gap-x-8 mb-8">
         <Htag tag="h1">{title}</Htag>
         {products.length > 0 &&
           <>

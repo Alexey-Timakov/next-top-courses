@@ -12,21 +12,21 @@ export const SortSwitcher = ({ changeSort, currentSort }: ISortSwitcher): ReactE
   return (
     <div className="grid grid-cols-[auto_auto] items-center gap-x-16">
       <span
-        className={cn("cursor-pointer text-[1.6rem] leading-8", {
+        className={cn("cursor-pointer text-[1.6rem] leading-8 text-nowrap", {
           ["font-bold text-[var(--primary)]"]: currentSort === TSort.rating
         })}
         onClick={() => changeSort(TSort.rating)}
       >
-        {currentSort === TSort.rating && <SortIcon className="inline-block mr-3" />}
+        {currentSort === TSort.rating && <SortIcon className="inline-block mr-3 mb-2" />}
         По рейтингу
       </span>
       <span
-        className={cn("cursor-pointer text-[1.6rem] leading-8", {
+        className={cn("cursor-pointer text-[1.6rem] leading-8 text-nowrap", {
           ["font-bold text-[var(--primary)]"]: currentSort === TSort.price
         })}
         onClick={() => changeSort(TSort.price)}
       >
-        {currentSort === TSort.price && <SortIcon className="inline-block mr-3" />}
+        {currentSort === TSort.price && <SortIcon className="inline-block mr-3 mb-2" />}
         По цене
       </span>
     </div>

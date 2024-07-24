@@ -39,6 +39,73 @@ body {
       "footer footer footer footer"
   }
 
+  .product-main {
+    grid-template-areas:
+      "logo . title . price . credit . rate"
+      "logo . tags . price-text . credit-text . rate-text"
+      "hr-1 hr-1 hr-1 hr-1 hr-1 hr-1 hr-1 hr-1 hr-1"
+      "descr descr descr descr descr descr descr descr descr"
+      "features features features adv adv adv adv adv adv"
+      "hr-2 hr-2 hr-2 hr-2 hr-2 hr-2 hr-2 hr-2 hr-2"
+      "buttons buttons buttons buttons buttons buttons buttons buttons buttons"
+    ;
+    grid-template-columns: [start] 7rem [logo-end] 3rem [title-start] calc(50% - 10rem) [med] 1fr [price-start] auto [price-end] 4rem [credit-start] auto [credit-end] 4rem [rate-start] auto [end];
+  }
+
+  .product-md {
+    grid-template-areas:
+      "logo . title title title title title"
+      "logo . tags tags tags tags tags"
+      "price price price . credit . rate"
+      "price-text price-text price-text . credit-text . rate-text"
+      "hr-1 hr-1 hr-1 hr-1 hr-1 hr-1 hr-1"
+      "descr descr descr descr descr descr descr"
+      "features features features features features features features"
+      "adv adv adv adv adv adv adv"
+      "hr-2 hr-2 hr-2 hr-2 hr-2 hr-2 hr-2"
+      "buttons buttons buttons buttons buttons buttons buttons"
+    ;
+    grid-template-columns: [start] 7rem [logo-end] 3rem [title-start] auto [med] 4rem [credit-start] auto [credit-end] 4rem [rate-start] 1fr [end];
+  }
+
+  .product-sm {
+    grid-template-areas:
+      "logo . title"
+      "logo . tags"
+      "price-text price-text price"
+      "credit-text credit-text credit"
+      "rate-text rate-text rate"
+      "hr-1 hr-1 hr-1"
+      "descr descr descr"
+      "features features features"
+      "adv adv adv"
+      "hr-2 hr-2 hr-2"
+      "buttons buttons buttons"
+    ;
+    grid-template-columns: [start] 7rem [logo-end] 3rem [title-start] 1fr [end];
+  }
+
+  .product-xs {
+    grid-template-areas:
+      "logo"
+      "title"
+      "tags"
+      "price"
+      "price-text"
+      "credit"
+      "credit-text"
+      "rate"
+      "rate-text"
+      "hr-1"
+      "descr"
+      "features"
+      "adv"
+      "hr-2"
+      "buttons"
+    ;
+    grid-template-columns: 1fr;
+  }
+
   .filled {
     circle {
       fill: var(--red)
